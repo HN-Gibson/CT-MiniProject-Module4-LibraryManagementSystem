@@ -1,5 +1,3 @@
-
-
 class Book:
     def __init__(self,title,author,genre,pub_date):
         self.title = title
@@ -11,7 +9,8 @@ class Book:
     def borrow_book(self):
         if self.available == "Available":
             self.available = "Borrowed"
-            
+            return True
+        return False 
     def return_book(self):
         self.available = "Available"
     

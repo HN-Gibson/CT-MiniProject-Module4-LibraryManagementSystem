@@ -1,7 +1,7 @@
 from ErrorHandling import UserInputEmpty
 from ErrorHandling import InvalidEntry
 from ErrorHandling import BookNotFound
-import BookOps
+from LibraryOps import Library
 
 class UserInterface:
     def __init__(self):
@@ -37,7 +37,7 @@ class UserInterface:
                 InvalidEntry.handle_invalid_entry()
 
     def book_operations(self):
-        library = {}
+        library = Library()
         while True:
             try:
                 print("""
@@ -52,13 +52,8 @@ class UserInterface:
                 user_request = input("Please enter the number associated with the operation you would like to perform:\n")
                 if user_request == "":
                     raise UserInputEmpty
-                elif user_request == "1":     
-                    title = input("Enter the title:\n")
-                    author = input("Enter the author:\n")
-                    genre = input("Enter the genre:\n")
-                    pub_date = input("Enter the date of publication:\n")
-                    library[title] = BookOps.Book(title,author,genre,pub_date)
-                    print (f"'{title}' Added!")
+                elif user_request == "1":
+                    library.add_book()     
                 elif user_request == "2":
                     title = input ("Enter title you would like to borrow:\n")
                     pass
@@ -66,18 +61,9 @@ class UserInterface:
                     title = input ("Enter title you would like to return:\n")
                     pass
                 elif user_request == "4":
-                    title = input ("Enter title you would like to search:\n")
-                    book_data = library.get(title)
-                    if book_data == None:
-                        raise BookNotFound
-                    else:
-                        print(book_data) 
+                    library.search_book()
                 elif user_request == "5":
-                    if library == {}:
-                        print("No books in library!")
-                    else:
-                        for title in library:
-                            print(f"'{title}'")
+                    library.display_books()
                 elif user_request == "6":
                     break
                 else:
