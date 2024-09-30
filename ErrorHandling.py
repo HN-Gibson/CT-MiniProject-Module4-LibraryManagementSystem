@@ -1,0 +1,13 @@
+
+class UserInputEmpty(Exception):
+    pass
+    def handle_user_input_empty():
+        print("User Input Empty. Please try again.")          
+class InvalidEntry(Exception):
+    pass
+    def handle_invalid_entry():
+        print("Invalid Entry. Please try again.")
+class BookNotFound(Exception):
+    pass
+    def handle_book_not_found():
+        print("No book found by that name.")
