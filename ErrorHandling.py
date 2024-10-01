@@ -11,3 +11,7 @@ class BookNotFound(Exception):
     pass
     def handle_book_not_found():
         print("No book found by that name.")
+class UserNotFound(Exception):
+    pass
+    def handle_user_not_found():
+        print("No user found with that User ID.")

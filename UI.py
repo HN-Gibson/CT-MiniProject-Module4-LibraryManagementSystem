@@ -1,6 +1,5 @@
 from ErrorHandling import UserInputEmpty
 from ErrorHandling import InvalidEntry
-from ErrorHandling import BookNotFound
 from LibraryOps import Library
 
 class UserInterface:
@@ -55,10 +54,8 @@ class UserInterface:
                 elif user_request == "1":
                     library.add_book()     
                 elif user_request == "2":
-                    title = input ("Enter title you would like to borrow:\n")
                     pass
                 elif user_request == "3":
-                    title = input ("Enter title you would like to return:\n")
                     pass
                 elif user_request == "4":
                     library.search_book()
@@ -72,10 +69,9 @@ class UserInterface:
                 UserInputEmpty.handle_user_input_empty()
             except InvalidEntry:
                 InvalidEntry.handle_invalid_entry()
-            except BookNotFound:
-                BookNotFound.handle_book_not_found()
 
     def user_operations(self):
+        
         while True:
             try:
                 print("""
