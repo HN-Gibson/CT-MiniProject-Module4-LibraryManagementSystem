@@ -25,6 +25,7 @@ It also provides information regarding the authors featured in the library.
 **Note: When using the menus, please make sure you are entering the number associated with the menu option and not the name of that option**
 
 1. Book Operations (a.k.a., 'BookOps')
+
     - Within this menu, you are able to access the Library to: 
         1. Add books, including information about the author, genre, and year it was published.
             - Note: All newly added books will enter the collection with a designation of available. To change this, use the Borrow a book option to update the status as well as who has the book.
@@ -37,6 +38,7 @@ It also provides information regarding the authors featured in the library.
     - After completeing an operation, you will have the opporunity to continue accessing other operations in this menu before returning to the main menu.
 
 2. User Operations (a.k.a., 'UserOps')
+
     -Within this menu, you are able to access the User Database to:
         1. Add users, including a clever or not so clever User ID, which will be used to search for that user later.
         2. View user details, such as name, User ID, and what books they have currently by searching with the associated User ID.
@@ -46,6 +48,7 @@ It also provides information regarding the authors featured in the library.
             - After completeing an operation, you will have the opporunity to continue accessing other operations in this menu before returning to the main menu.
 
 3. Author Operations (a.k.a., 'AuthorOps')
+
     -Within this menu, you are able to access the Author Database to:
         1. Add authors, including a brief bio.
             - Authors are not automatically added when a book by them is added
