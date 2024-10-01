@@ -35,6 +35,7 @@ class UserInterface:
                 UserInputEmpty.handle_user_input_empty()
             except InvalidEntry:
                 InvalidEntry.handle_invalid_entry()
+        print("Thank you for using my program!")
 
     def book_operations(self):
         while True:

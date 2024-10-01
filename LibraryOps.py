@@ -1,5 +1,6 @@
 from BookOps import Book
 from UserOps import User
+from AuthorOps import Author
 from ErrorHandling import BookNotFound
 from ErrorHandling import UserNotFound
 from ErrorHandling import AuthorNotFound
@@ -99,9 +100,9 @@ class Library:
                 print(f"User ID: {user_id}")
     
     def add_author(self):
-        name = input("Enter the autho's name:\n")
+        name = input("Enter the author's name:\n")
         biography = input("Enter a brief bio about the autho:\n")
-        self.author_database[name] = User(name,biography)
+        self.author_database[name] = Author(name,biography)
         print (f"Added {name} to the system!")
     
     def view_author_detail(self):
