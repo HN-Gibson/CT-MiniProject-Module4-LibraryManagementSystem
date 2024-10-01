@@ -112,11 +112,11 @@ class UserInterface:
                 if user_request == "":
                     raise UserInputEmpty
                 elif user_request == "1":
-                    pass
+                    self.library.add_author()
                 elif user_request == "2":
-                    pass
+                    self.library.view_author_detail()
                 elif user_request == "3":
-                    pass
+                    self.library.display_authors()
                 elif user_request == "4":
                     break
                 else:

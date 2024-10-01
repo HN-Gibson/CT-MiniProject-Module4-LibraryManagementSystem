@@ -96,6 +96,11 @@ class Library:
         else:
             for user_id in self.user_database:
                 print(f"User ID: {user_id}")
-
+    def add_author(self):
+        pass
+    def view_author_detail(self):
+        pass
+    def display_authors(self):
+        pass
 
     
