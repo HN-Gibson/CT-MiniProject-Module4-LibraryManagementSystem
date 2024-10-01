@@ -2,9 +2,10 @@ from ErrorHandling import UserInputEmpty
 from ErrorHandling import InvalidEntry
 from LibraryOps import Library
 
+
 class UserInterface:
     def __init__(self):
-        pass
+        self.library = Library()
     def main(self):
         while True:
             try:
@@ -36,7 +37,6 @@ class UserInterface:
                 InvalidEntry.handle_invalid_entry()
 
     def book_operations(self):
-        library = Library()
         while True:
             try:
                 print("""
@@ -52,15 +52,15 @@ class UserInterface:
                 if user_request == "":
                     raise UserInputEmpty
                 elif user_request == "1":
-                    library.add_book()     
+                    self.library.add_book()     
                 elif user_request == "2":
-                    pass
+                    self.library.check_out_book()
                 elif user_request == "3":
-                    pass
+                    self.library.check_in_book()
                 elif user_request == "4":
-                    library.search_book()
+                    self.library.search_book()
                 elif user_request == "5":
-                    library.display_books()
+                    self.library.display_books()
                 elif user_request == "6":
                     break
                 else:
@@ -71,7 +71,6 @@ class UserInterface:
                 InvalidEntry.handle_invalid_entry()
 
     def user_operations(self):
-        
         while True:
             try:
                 print("""
@@ -85,11 +84,11 @@ class UserInterface:
                 if user_request == "":
                     raise UserInputEmpty
                 elif user_request == "1":
-                    pass
+                    self.library.add_user()
                 elif user_request == "2":
-                    pass
+                    self.library.view_user_detail()
                 elif user_request == "3":
-                    pass
+                    self.library.display_users()
                 elif user_request == "4":
                     break
                 else:

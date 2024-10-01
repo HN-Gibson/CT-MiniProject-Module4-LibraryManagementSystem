@@ -4,12 +4,12 @@ class User:
         self.__user_id = id
         self.__borrowed_books = []
     
-    def get_name(self):
-        return self.__name
-    def get_id(self):
-        return self.__user_id
-    def get_borrowed_books(self):
-        return self.__borrowed_books
+    # def get_name(self):
+    #     return self.__name
+    # def get_id(self):
+    #     return self.__user_id
+    # def get_borrowed_books(self):
+    #     return self.__borrowed_books
     def add_borrowed_books(self,title):
         self.__borrowed_books.append(title)
     def remove_borrowed_books(self,title):

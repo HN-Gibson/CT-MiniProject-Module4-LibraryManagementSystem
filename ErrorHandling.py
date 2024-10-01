@@ -15,3 +15,7 @@ class UserNotFound(Exception):
     pass
     def handle_user_not_found():
         print("No user found with that User ID.")
+class AuthorNotFound(Exception):
+    pass
+    def handle_author_not_found():
+        print("No author found with that name.")

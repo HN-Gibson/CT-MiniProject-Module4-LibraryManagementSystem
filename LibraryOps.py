@@ -6,15 +6,46 @@ from ErrorHandling import UserNotFound
 class Library:
     def __init__(self):
         self.library = {}
+        self.user_database = {}
+        self.author_database = {}
 
     def check_out_book(self):
-        title = input("Enter title you would like to borrow:\n")
-        user_id = input("Please enter your User ID:\n")
+        try:    
+            title = input("Enter title of book you would like to borrow:\n")
+            user_id = input("Enter User ID for person borrowing the book:\n")
+            book_to_borrow = self.library.get(title)
+            borrower = self.user_database.get(user_id)
+            if book_to_borrow == None:
+                raise BookNotFound
+            elif borrower == None:
+                raise UserNotFound
+            else:
+                Book.borrow_book(book_to_borrow)
+                User.add_borrowed_books(borrower,title)
+            print (f"{title} has been borrowed by {user_id}!")    
+        except BookNotFound:
+            BookNotFound.handle_book_not_found()
+        except UserNotFound:
+            UserNotFound.handle_user_not_found()            
 
     def check_in_book(self):
-        title = input("Enter title you would like to return:\n")
-        user_id = input("Please enter your User ID:\n")
-    
+        try:    
+            title = input("Enter title of book you would like to return:\n")
+            user_id = input("Enter User ID for person returning the book:\n")
+            book_to_return = self.library.get(title)
+            borrower = self.user_database.get(user_id)
+            if book_to_return == None:
+                raise BookNotFound
+            elif borrower == None:
+                raise UserNotFound            
+            else:
+                Book.return_book(book_to_return)
+                User.remove_borrowed_books(borrower,title)
+                print (f"{title} has been returned by {user_id}!")
+        except BookNotFound:
+            BookNotFound.handle_book_not_found()
+        except UserNotFound:
+            UserNotFound.handle_user_not_found()    
     
     def add_book(self):
         title = input("Enter the title:\n")
@@ -41,10 +72,6 @@ class Library:
         else:
             for title in self.library:
                 print(f"'{title}'")
-
-class UserDatabase:
-    def __init__(self):
-        self.user_database = {}
     
     def add_user(self):
         name = input("Enter the user's name:\n")
@@ -63,5 +90,12 @@ class UserDatabase:
         except UserNotFound:
             UserNotFound.handle_user_not_found()
 
+    def display_users(self):
+        if self.user_database == {}:
+            print("No users in database!")
+        else:
+            for user_id in self.user_database:
+                print(f"User ID: {user_id}")
+
+
     
-        
