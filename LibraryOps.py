@@ -2,6 +2,7 @@ from BookOps import Book
 from UserOps import User
 from ErrorHandling import BookNotFound
 from ErrorHandling import UserNotFound
+from ErrorHandling import AuthorNotFound
 
 class Library:
     def __init__(self):
@@ -96,11 +97,29 @@ class Library:
         else:
             for user_id in self.user_database:
                 print(f"User ID: {user_id}")
+    
     def add_author(self):
-        pass
+        name = input("Enter the autho's name:\n")
+        biography = input("Enter a brief bio about the autho:\n")
+        self.author_database[name] = User(name,biography)
+        print (f"Added {name} to the system!")
+    
     def view_author_detail(self):
-        pass
+        try:
+            author = input("Enter name for author you would like details for:\n")
+            author_data = self.author_database.get(author)
+            if author_data == None:
+                raise AuthorNotFound
+            else:
+                print(author_data)
+        except AuthorNotFound:
+            AuthorNotFound.handle_author_not_found()
+    
     def display_authors(self):
-        pass
+        if self.author_database == {}:
+            print("No users in database!")
+        else:
+            for name in self.author_database:
+                print(f"{name}")
 
     
